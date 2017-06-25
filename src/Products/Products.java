@@ -7,17 +7,17 @@ public class Products {
     public static void main(String[] args) {
         Farm farm = new Farm(100, 250, 100);
 
-        Product potato = new Vegetable(100, 10, 10,1,true);
-        Product orange = new Fruit(100, 30, 25,1,true);
+        Product potato = new Vegetable(100, 10, 10, 1, true);
+        Product orange = new Fruit(100, 30, 25, 1, true);
 
-        potato.setFarm(farm);
-        orange.setFarm(farm);
+        farm.addProduct(potato);
+        farm.addProduct(orange);
 
         System.out.println("Product Status");
         System.out.println(potato.toString());
         System.out.println(orange.toString());
 
-        potato.sellProduct(); //  System.out.println("crop mass = 0. can`t  sell the product ")
+        farm.sellProduct(potato); //    System.out.println("you can`t sell product");
 
         System.out.println("Farm Status");
         System.out.println("Before  ");
@@ -26,10 +26,9 @@ public class Products {
         farm.useWater(orange);
         farm.useWater(potato);
 
-        orange.sellProduct();
-        potato.sellProduct();
+        farm.sellProduct(orange);
+        farm.sellProduct(potato);
 
-        farm.collectMoney();
 
         System.out.println("After  ");
         System.out.println(farm.toString());

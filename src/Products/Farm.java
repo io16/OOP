@@ -75,11 +75,21 @@ public class Farm {
         } else System.out.println("You haven't enough money to bought water");
     }
 
-    protected void collectMoney() {
-        for (Product product : products) {
-            this.money += product.transferMoney(this);
+    public void sellProduct(Product product) {
+        if (products.contains(product) && product.getCropMass() > 0) {
+            this.money += product.getCropMass() * product.getAreaCrop() * product.getPrice();
+
+            System.out.println(" You Sell product and got " + product.getCropMass() * product.getAreaCrop() * product.getPrice() + " money");
+
+            product.setCropMass(product.getCropMass() * -1);
+
+        } else
+
+        {
+            System.out.println("you can`t sell product");
         }
     }
+
 
     @Override
     public String toString() {
