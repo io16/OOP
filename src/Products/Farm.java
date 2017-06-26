@@ -43,17 +43,14 @@ public class Farm {
     }
 
 
-    public Farm addProduct(Product product) {
+    public void addProduct(Product product) {
         if (areaCrop - usedArea > product.getAreaCrop() && !products.contains(product)) {
             products.add(product);
             this.usedArea += product.getAreaCrop();
 
             System.out.println("product added");
 
-            return this;
         } else System.out.println("area of product too big or product already joined");
-
-        return null;
     }
 
     public void useWater(Product product) {
